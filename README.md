@@ -1,8 +1,8 @@
-== pdftohtmljs - pdf2htmlEx shell wrapper for Node.js ==
+## pdftohtmljs - pdf2htmlEx shell wrapper for Node.js
 
 pdftohtmljs provides access to pdf2htmlEX via shell in node.js programs. Current version uses ShellJS for platform independent execution of shell commands.
 
-== Installation ==
+### Installation
 
 via npm:
 
@@ -10,7 +10,7 @@ via npm:
 $ npm install pdftohtmljs
 ```
 
-== Usage ==
+### Usage
 ```
 var pdftohtml = require('pdftohtmljs'),
     transcoder = new pdftohtml('tests/pdfs/sample.pdf');
@@ -32,7 +32,7 @@ transcoder.progress(function(ret) {
 transcoder.convert();
 ```
 
-== Tests ==
+### Tests
 ```
 $ npm test
 ```
