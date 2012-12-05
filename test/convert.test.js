@@ -3,6 +3,7 @@ var assert = require('assert'),
     pdftohtml = require('../index.js');
 
 describe('pdftohtmljs', function(){
+
   describe('add_options', function(){
     it('should add options', function(){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf');

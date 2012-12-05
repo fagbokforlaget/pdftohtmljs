@@ -1,7 +1,7 @@
 REPORTER = list
 
 test:
-		@NODE_ENV=test ./node_modules/.bin/mocha -u bdd --timeout 5s --reporter $(REPORTER)
+		@NODE_ENV=test ./node_modules/.bin/mocha -u bdd --timeout 10s --reporter $(REPORTER)
 
 test-cov: lib-cov
 		@PDFTOHTML_COV=1 $(MAKE) test REPORTER=html-cov > test/coverage.html
