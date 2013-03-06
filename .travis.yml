@@ -1,0 +1,8 @@
+language: node_js
+before_install:
+  - sudo add-apt-repository ppa:coolwanglu/pdf2htmlex -y
+  - sudo apt-get update -y
+  - sudo apt-get install pdf2htmlex -y
+node_js:
+  - 0.8
+  - 0.6
