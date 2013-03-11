@@ -1,4 +1,5 @@
 var assert = require('assert'),
+    path = require('path'),
     fs = require('fs'),
     pdftohtml = require('../index.js');
 
@@ -60,8 +61,13 @@ describe('pdftohtmljs', function(){
       var transcoder = new pdftohtml(__dirname + '/pdfs/sample.pdf');
       var testfile = __dirname + '/sample.html';
 
-      fs.exists(testfile, function(exist) {
-        if (exist) {
+      // Backward compatibility check
+      if (typeof fs.exists !== "undefined") {
+        path.exists = fs.exists;
+      }
+
+      path.exists(testfile, function(exists) {
+        if (exists) {
           fs.unlinkSync(testfile);
         }
       });
@@ -70,7 +76,7 @@ describe('pdftohtmljs', function(){
       transcoder.add_options(['--dest-dir '+ __dirname]);
 
       transcoder.success(function() {
-        fs.exists(testfile, function(exist) {
+        path.exists(testfile, function(exist) {
           if (exist) {
             fs.unlinkSync(testfile);
             done();

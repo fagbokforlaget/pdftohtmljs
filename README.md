@@ -1,5 +1,5 @@
 ## pdftohtmljs - pdf2htmlEx shell wrapper for Node.js
-
+[![Build Status](https://travis-ci.org/fagbokforlaget/pdftohtmljs.png)](https://travis-ci.org/fagbokforlaget/pdftohtmljs)
 pdftohtmljs provides access to [pdf2htmlEX](https://github.com/coolwanglu/pdf2htmlEX) via shell in node.js programs. Current version uses ShellJS for platform independent execution of shell commands.
 
 ### Installation
