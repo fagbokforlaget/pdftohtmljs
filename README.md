@@ -6,7 +6,7 @@ pdftohtmljs provides access to [pdf2htmlEX](https://github.com/coolwanglu/pdf2ht
 via npm:
 
 ```
-$ npm install pdftohtmljs
+npm install pdftohtmljs
 ```
 
 ### Usage
@@ -29,6 +29,19 @@ converter.progress(function(ret) {
 });
 
 converter.convert();
+```
+
+### Command line usage
+```
+npm install pdftohtmljs -g
+```
+
+```
+pdftohtmljs sample.pdf
+```
+You may optionally provide your own filename and preset
+```
+pdftohtmljs sample.pdf sample.html ipad
 ```
 
 ### Tests
