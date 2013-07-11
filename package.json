@@ -18,7 +18,7 @@
     "url": "https://github.com/fagbokforlaget/pdftohtmljs.git"
   },
   "bin": {
-    "pdftotextjs": "./bin/pdftotextjs"
+    "pdftohtmljs": "./bin/pdftohtmljs"
   },
   "keywords": [
     "pdf2htmlex",
