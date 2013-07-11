@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var pdftohtml = require('../');
+var fs = require('fs');
+
+var filename = process.argv[2];
+if (filename) {
+  var isExists = fs.readFileSync(filename);
+  if(!isExists) {
+    console.log(printUsage());
+  }
+  else {
+    var outfile = process.argv[3];
+    var preset = process.argv[4] || "default";
+    run(filename, outfile, preset);
+  }
+}
+else console.log(printUsage());
+
+function run(str, outfile, preset) {
+  var converter = new pdftohtml(filename, outfile);
+
+  converter.preset(preset);
+
+  converter.success(function() {
+    console.log("Done");
+  });
+
+  converter.error(function(err) {
+    console.error(err);
+  });
+
+  converter.convert();
+}
+
+function printUsage() {
+  return "pdftohtmljs <input_pdf_file> [out_file] [preset]\n\
+            out_file: output html file. (optional)\n\
+            preset: conversion preferences (optional)";
+}
