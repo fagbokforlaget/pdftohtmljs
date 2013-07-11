@@ -44,10 +44,15 @@ describe('pdftohtmljs', function(){
       transcoder.preset('default');
       transcoder.add_options(['--dest-dir '+ __dirname]);
 
+      // Backward compatibility check
+      if (typeof fs.exists !== "undefined") {
+        path.exists = fs.exists;
+      }
+
       transcoder.success(function() {
-        path.exists(__dirname + '/pdfs/sample.html', function(exists) {
+        path.exists(__dirname + '/sample.html', function(exists) {
           if (exists) {
-            fs.unlinkSync(__dirname + '/pdfs/sample.html');
+            fs.unlinkSync(__dirname + '/sample.html');
             done();
           }
         });
