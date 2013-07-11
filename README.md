@@ -12,7 +12,7 @@ $ npm install pdftohtmljs
 ### Usage
 ```
 var pdftohtml = require('pdftohtmljs'),
-    converter = new pdftohtml('test/pdfs/sample.pdf');
+    converter = new pdftohtml('test/pdfs/sample.pdf', "sample.html");
 
 converter.preset('default');
 

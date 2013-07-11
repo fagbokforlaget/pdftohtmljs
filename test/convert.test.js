@@ -45,7 +45,12 @@ describe('pdftohtmljs', function(){
       transcoder.add_options(['--dest-dir '+ __dirname]);
 
       transcoder.success(function() {
-        done();
+        path.exists(__dirname + '/pdfs/sample.html', function(exists) {
+          if (exists) {
+            fs.unlinkSync(__dirname + '/pdfs/sample.html');
+            done();
+          }
+        });
       });
 
       transcoder.error(function(error) {
@@ -58,17 +63,16 @@ describe('pdftohtmljs', function(){
     });
 
     it('should test output file phyiscally', function(done){
-      var transcoder = new pdftohtml(__dirname + '/pdfs/sample.pdf');
-      var testfile = __dirname + '/sample.html';
+      var transcoder = new pdftohtml(__dirname + '/pdfs/sample.pdf', 'out.html');
 
       // Backward compatibility check
       if (typeof fs.exists !== "undefined") {
         path.exists = fs.exists;
       }
 
-      path.exists(testfile, function(exists) {
+      path.exists(__dirname + '/out.html', function(exists) {
         if (exists) {
-          fs.unlinkSync(testfile);
+          fs.unlinkSync(__dirname + '/out.html');
         }
       });
 
@@ -76,9 +80,9 @@ describe('pdftohtmljs', function(){
       transcoder.add_options(['--dest-dir '+ __dirname]);
 
       transcoder.success(function() {
-        path.exists(testfile, function(exist) {
+        path.exists(__dirname + '/out.html', function(exist) {
           if (exist) {
-            fs.unlinkSync(testfile);
+            fs.unlinkSync(__dirname + '/out.html');
             done();
           }
         });
