@@ -4,7 +4,6 @@ before_install:
   - sudo apt-get update -y
   - sudo apt-get install pdf2htmlex -y
 node_js:
-  - 0.8
   - "0.10"
   - "0.12"
   - "4.0.0"
