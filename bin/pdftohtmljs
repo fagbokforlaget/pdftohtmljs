@@ -19,18 +19,13 @@ else console.log(printUsage());
 
 function run(str, outfile, preset) {
   var converter = new pdftohtml(filename, outfile);
-
   converter.preset(preset);
-
-  converter.success(function() {
+  converter.convert().then(function() {
     console.log("Done");
-  });
-
-  converter.error(function(err) {
+  }).catch(function(err) {
     console.error(err);
   });
 
-  converter.convert();
 }
 
 function printUsage() {

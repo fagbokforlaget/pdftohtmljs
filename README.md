@@ -16,19 +16,20 @@ var pdftohtml = require('pdftohtmljs'),
 
 converter.preset('default');
 
-converter.success(function() {
-  console.log("convertion done");
+// Convert returns promise
+converter.convert().then(function() {
+  console.log("Success");
+}).catch(function(err) {
+  console.error("Conversion error: " + err);
 });
 
-converter.error(function(error) {
-  console.log("conversion error: " + error);
-});
-
+// If you would like to tap into progress then create
+// progress handler
 converter.progress(function(ret) {
   console.log ((ret.current*100.0)/ret.total + " %");
 });
 
-converter.convert();
+
 ```
 
 ### Command line usage
