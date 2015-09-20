@@ -10,7 +10,7 @@ npm install pdftohtmljs
 ```
 
 ### Usage
-```
+```javascript
 var pdftohtml = require('pdftohtmljs'),
     converter = new pdftohtml('test/pdfs/sample.pdf', "sample.html");
 
