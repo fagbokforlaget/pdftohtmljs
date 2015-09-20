@@ -16,31 +16,27 @@ describe('pdftohtmljs', function(){
   describe('preset', function(){
     it('should add preset', function(){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf');
-      transcoder.preset('default');
+      transcoder._preset('default');
       assert.equal(1, transcoder.options.additional.indexOf('--zoom'));
-    })
+    });
 
     it('should fail to load preset', function(){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf');
-      assert.throws(
-        function() {
-          transcoder.preset('somethingfisshy');
-        },
-        /somethingfisshy/
-      );
-    })
+      transcoder.convert('somethingfisshy').then().catch(function(err) {
+        assert.equal(true, /somethingfisshy/.test(err));
+      });
+    });
 
     it('should load custom preset', function(){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf');
-      transcoder.preset(__dirname + '/presets/custom');
+      transcoder._preset(__dirname + '/presets/custom');
       assert.equal(1, transcoder.options.additional.indexOf('--zoom'));
-    })
+    });
   });
 
   describe('convert', function(){
     it('should call success callback', function(done){
       var transcoder = new pdftohtml(__dirname + '/pdfs/sample.pdf');
-      transcoder.preset('default');
       transcoder.add_options(['--dest-dir '+ __dirname]);
 
       transcoder.convert().then(function() {
@@ -64,7 +60,6 @@ describe('pdftohtmljs', function(){
         }
       });
 
-      transcoder.preset('default');
       transcoder.add_options(['--dest-dir '+ __dirname]);
 
       transcoder.convert().then(function() {
@@ -83,7 +78,6 @@ describe('pdftohtmljs', function(){
   describe('error', function(done){
     it('should call error callback', function(){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf');
-      transcoder.preset('default');
       transcoder.convert().then(function() {
       }).catch(function(err) {
         done();
