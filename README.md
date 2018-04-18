@@ -1,5 +1,11 @@
 ## pdftohtmljs - pdf2htmlEx shell wrapper for Node.js
-[![Build Status](https://travis-ci.org/fagbokforlaget/pdftohtmljs.png)](https://travis-ci.org/fagbokforlaget/pdftohtmljs)
+[![view on npm](http://img.shields.io/npm/v/pdftohtmljs.svg)](https://www.npmjs.org/package/pdftohtmljs)
+[![npm module downloads](http://img.shields.io/npm/dt/pdftohtmljs.svg)](https://www.npmjs.org/package/pdftohtmljs)
+[![Dependency Status](https://david-dm.org/fagbokforlaget/pdftohtmljs.svg)](https://david-dm.org/fagbokforlaget/pdftohtmljs)
+[![Build Status](https://travis-ci.org/fagbokforlaget/pdftohtmljs.svg)](https://travis-ci.org/fagbokforlaget/pdftohtmljs)
+[![Known Vulnerabilities](https://snyk.io/test/github/fagbokforlaget/pdftohtmljs/badge.svg)](https://snyk.io/test/github/fagbokforlaget/pdftohtmljs)
+[![view on npm](http://img.shields.io/npm/l/pdftohtmljs.svg)](https://www.npmjs.org/package/pdftohtmljs)
+
 pdftohtmljs provides access to [pdf2htmlEX](https://github.com/coolwanglu/pdf2htmlEX) via shell in node.js programs. Current version uses ShellJS for platform independent execution of shell commands.
 
 ### Installation
@@ -49,11 +55,5 @@ pdftohtmljs sample.pdf sample.html ipad
 ### Tests
 ```
 $ npm test
-```
-
-Coverage (Make sure you have installed jscoverage (it's easy `sudo aptitude install jscoverage` or `brew jscoverage`)
-
-```
-$ npm test-cov
 ```
 
