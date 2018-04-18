@@ -57,3 +57,5 @@ pdftohtmljs sample.pdf sample.html ipad
 $ npm test
 ```
 
+### NodeJS Support
+This library support nodejs v6+. Anything below v6 may still work but not tested.
