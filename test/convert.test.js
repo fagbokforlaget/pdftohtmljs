@@ -83,6 +83,14 @@ describe('pdftohtmljs', function(){
         done();
       });
     });
+    it('should throw error when bin is not found', function(){
+      var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf', 'something.html', {bin: 'blah'});
+      transcoder.convert().then(function() {
+      }).catch(function(err) {
+        done();
+      });
+    });
+
   });
 
 });
