@@ -8,6 +8,9 @@
 
 pdftohtmljs provides access to [pdf2htmlEX](https://github.com/coolwanglu/pdf2htmlEX) via shell in node.js programs.
 
+## Requirements
+- [pdf2htmlEX](https://github.com/coolwanglu/pdf2htmlEX)
+
 ## Installation
 via npm:
 
