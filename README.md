@@ -1,4 +1,4 @@
-## pdftohtmljs - pdf2htmlEx shell wrapper for Node.js
+# pdftohtmljs - pdf2htmlEx shell wrapper for Node.js
 [![view on npm](http://img.shields.io/npm/v/pdftohtmljs.svg)](https://www.npmjs.org/package/pdftohtmljs)
 [![npm module downloads](http://img.shields.io/npm/dt/pdftohtmljs.svg)](https://www.npmjs.org/package/pdftohtmljs)
 [![Dependency Status](https://david-dm.org/fagbokforlaget/pdftohtmljs.svg)](https://david-dm.org/fagbokforlaget/pdftohtmljs)
@@ -8,14 +8,14 @@
 
 pdftohtmljs provides access to [pdf2htmlEX](https://github.com/coolwanglu/pdf2htmlEX) via shell in node.js programs.
 
-### Installation
+## Installation
 via npm:
 
 ```
 npm install pdftohtmljs
 ```
 
-### Usage
+## Usage
 ```javascript
 var pdftohtml = require('pdftohtmljs');
 var converter = new pdftohtml('test/pdfs/sample.pdf', "sample.html");
@@ -39,7 +39,7 @@ converter.progress(function(ret) {
 
 ```
 
-### Command line usage
+## Command line usage
 ```
 npm install pdftohtmljs -g
 ```
@@ -52,10 +52,10 @@ You may optionally provide your own filename and preset
 pdftohtmljs sample.pdf sample.html ipad
 ```
 
-### Tests
+## Tests
 ```
 $ npm test
 ```
 
-### NodeJS Support
+## NodeJS Support
 This library support nodejs v6+. Anything below v6 may still work but not tested.
