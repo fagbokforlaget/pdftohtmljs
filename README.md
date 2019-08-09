@@ -11,6 +11,13 @@ pdftohtmljs provides access to [pdf2htmlEX](https://github.com/coolwanglu/pdf2ht
 ## Requirements
 - [pdf2htmlEX](https://github.com/coolwanglu/pdf2htmlEX)
 
+If you've docker env setup, just install it via docker
+```
+alias pdf2htmlEX="docker run -ti --rm -v ~/pdf:/pdf iapain/pdf2htmlex pdf2htmlEX"
+```
+
+~/pdf on host computer will be used as volume
+
 ## Installation
 via npm:
 
