@@ -75,15 +75,15 @@ describe('pdftohtmljs', function(){
     });
   });
 
-  describe('error', function(done){
-    it('should call error callback', function(){
+  describe('error', function(){
+    it('should call error callback', function(done){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf');
       transcoder.convert().then(function() {
       }).catch(function(err) {
         done();
       });
     });
-    it('should throw error when bin is not found', function(){
+    it('should throw error when bin is not found', function(done){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf', 'something.html', {bin: 'blah'});
       transcoder.convert().then(function() {
       }).catch(function(err) {
