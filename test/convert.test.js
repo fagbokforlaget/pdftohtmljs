@@ -20,11 +20,16 @@ describe('pdftohtmljs', function(){
       assert.equal(1, transcoder.options.additional.indexOf('--zoom'));
     });
 
-    it('should fail to load preset', function(){
+    it('should fail to load preset', async function(){
       var transcoder = new pdftohtml(__dirname + '/pdfs/invalidfile.pdf');
-      transcoder.convert('somethingfisshy').then().catch(function(err) {
+
+      try {
+        await transcoder.convert('somethingfisshy')
+      }
+      catch (err) {
         assert.equal(true, /somethingfisshy/.test(err));
-      });
+      }
+
     });
 
     it('should load custom preset', function(){
