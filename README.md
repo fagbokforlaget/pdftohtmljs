@@ -38,7 +38,7 @@ const pdftohtml = require('pdftohtmljs')
 // Feel free to create custom presets
 // see https://github.com/fagbokforlaget/pdftohtmljs/blob/master/lib/presets/ipad.js
 const convert = async (file, output, preset) => {
-  const converter = new pdftohtml(path, output)
+  const converter = new pdftohtml(file, output)
 
   // If you would like to tap into progress then create
   // progress handler
