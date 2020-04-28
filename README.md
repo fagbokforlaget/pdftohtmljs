@@ -18,34 +18,47 @@ alias pdf2htmlEX="docker run -ti --rm -v ~/pdf:/pdf iapain/pdf2htmlex pdf2htmlEX
 
 ~/pdf on host computer will be used as volume
 
+PDF2HTMLEX path is resolved usiing following:
+* first it looks into env variable `PDF2HTMLEX_BIN`.
+* then it fallbacks to `bin` option.
+* then it fallbacks to system path.
+
 ## Installation
 via npm:
 
 ```
 npm install pdftohtmljs
-```
+````
 
 ## Usage
 ```javascript
-var pdftohtml = require('pdftohtmljs');
-var converter = new pdftohtml('test/pdfs/sample.pdf', "sample.html");
+const pdftohtml = require('pdftohtmljs')
 
 // See presets (ipad, default)
 // Feel free to create custom presets
 // see https://github.com/fagbokforlaget/pdftohtmljs/blob/master/lib/presets/ipad.js
-// convert() returns promise
-converter.convert('ipad').then(function() {
-  console.log("Success");
-}).catch(function(err) {
-  console.error("Conversion error: " + err);
-});
+const convert = async (file, output, preset) => {
+  const converter = new pdftohtml(path, output)
 
-// If you would like to tap into progress then create
-// progress handler
-converter.progress(function(ret) {
-  console.log ((ret.current*100.0)/ret.total + " %");
-});
+  // If you would like to tap into progress then create
+  // progress handler
+  converter.progress((ret) => {
+    const progress = (ret.current * 100.0) / ret.total
 
+    console.log(`${progress} %`)
+  })
+
+  try {
+    // convert() returns promise
+    await converter.convert(preset || 'ipad')
+  } catch (err) {
+    console.error(`Psst! something went wrong: ${err.msg}`)
+  }
+
+}
+
+// call method
+convert('test/pdfs/sample.pdf', 'sample.html')
 
 ```
 
