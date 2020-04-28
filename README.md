@@ -81,4 +81,4 @@ $ npm test
 ```
 
 ## NodeJS Support
-This library support nodejs v6+. Anything below v6 may still work but not tested.
+This library support nodejs v8+
